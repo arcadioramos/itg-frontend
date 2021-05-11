@@ -9,7 +9,7 @@ const Cards = () => {
 
     const redireccion = (id)=>{
         
-        window.location = 'CardIndividual/'+id
+        window.location = 'https://itg-backend.herokuapp.com/CardIndividual/'+id
     }
 
     
