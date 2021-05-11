@@ -44,7 +44,7 @@ const EditarServicio = (() => {
     }
 
     const updateServicio = (filePath) => {
-        Axios.post('https://itg-backend.herokuapp.com/editarServicio', {
+        Axios.post('/editarServicio', {
             id: id,
             titulo: titulo,
             value: value,
@@ -110,7 +110,7 @@ const EditarServicio = (() => {
 
 
         useEffect(() => {
-            Axios.get('https://itg-backend.herokuapp.com/getServicioIndividual/' + id).then((response) => {
+            Axios.get('/getServicioIndividual/' + id).then((response) => {
                 
                 
                 setTitulo(response.data.result[0].titulo);
@@ -121,7 +121,7 @@ const EditarServicio = (() => {
         }, [id])
 
         useEffect(() => {
-            Axios.get('https://itg-backend.herokuapp.com/getToken', {
+            Axios.get('/getToken', {
             }).then((response) => {
                 if (response.data.authorized === true) {
                     console.log("estoy autorizado " + response.data.authorized)

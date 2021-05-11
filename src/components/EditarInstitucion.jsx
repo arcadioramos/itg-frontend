@@ -46,7 +46,7 @@ const EditarInstitucion = (() => {
 
     const updateInstitucion = (filePath) => {
         
-        Axios.post('https://itg-backend.herokuapp.com/editarInstitucion', {
+        Axios.post('/editarInstitucion', {
             id: id,
             titulo: titulo,
             value: value,
@@ -113,7 +113,7 @@ const EditarInstitucion = (() => {
 
 
         useEffect(() => {
-            Axios.get('https://itg-backend.herokuapp.com/getInstitucionIndividual/' + id).then((response) => {
+            Axios.get('/getInstitucionIndividual/' + id).then((response) => {
                 
                 setValue(response.data[0].contenido);
                 
@@ -125,7 +125,7 @@ const EditarInstitucion = (() => {
             })
         }, [id])
         useEffect(() => {
-            Axios.get('https://itg-backend.herokuapp.com/getToken', {
+            Axios.get('/getToken', {
             }).then((response) => {
                 if (response.data.authorized === true) {
                     console.log("estoy autorizado " + response.data.authorized)

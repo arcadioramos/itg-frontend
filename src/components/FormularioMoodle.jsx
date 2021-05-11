@@ -27,7 +27,7 @@ const FormularioMoodle = (() => {
 
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -41,7 +41,7 @@ const FormularioMoodle = (() => {
 
     const onSubmit = async (e) => {
         if (titulo !== "" && servidor !== "") {
-            Axios.post('https://itg-backend.herokuapp.com/createMoodle', {
+            Axios.post('/createMoodle', {
                 titulo: titulo,
                 servidor: servidor
             }).then(() => {

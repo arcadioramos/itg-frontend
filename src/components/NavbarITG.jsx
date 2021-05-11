@@ -25,30 +25,30 @@ const NavbarITG = () => {
   Axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/getCarreras').then((response) => {
+    Axios.get('/getCarreras').then((response) => {
       setofertaAcademicaList(response.data);
     })
   }, [counter])
 
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/https://itg-backend.herokuapp.com/getServicio').then((response) => {
+    Axios.get('/getServicio').then((response) => {
       setServiciosList(response.data);
       console.log(response.data)
     })
   }, [counterServicio])
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/getAlumnos').then((response) => {
+    Axios.get('/getAlumnos').then((response) => {
       setAlumnosList(response.data);
       console.log(response.data)
     })
   }, [counterAlumnos])
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/getMoodle').then((response) => {
+    Axios.get('/getMoodle').then((response) => {
       setMoodleList(response.data);
     })
   }, [counterMoodle])
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/https://itg-backend.herokuapp.com/getInstitucion').then((response) => {
+    Axios.get('/getInstitucion').then((response) => {
       setInstitucionList(response.data);
       console.log(response.data)
     })
@@ -56,7 +56,7 @@ const NavbarITG = () => {
 
 
   useEffect(() => {
-    Axios.get('https://itg-backend.herokuapp.com/https://itg-backend.herokuapp.com/getToken', {
+    Axios.get('/getToken', {
     }).then((response) => {
       if (response.data.authorized === true) {
         console.log("estoy autorizado " + response.data.authorized)
@@ -77,7 +77,7 @@ const NavbarITG = () => {
   }
 
   const cerrarSesion = () => {
-    Axios.get('https://itg-backend.herokuapp.com/logout', {
+    Axios.get('/logout', {
     }).then((response) => {
       history.push('/')
     })

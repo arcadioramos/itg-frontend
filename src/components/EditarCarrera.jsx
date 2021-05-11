@@ -36,7 +36,7 @@ const EditarCarrera = (() => {
     var filePathSave = ""
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getDatosCarrera/' + id).then((response) => {
+        Axios.get('/getDatosCarrera/' + id).then((response) => {
             setDatos(response.data[0]);
         })
     }, [id])
@@ -57,7 +57,7 @@ const EditarCarrera = (() => {
     }, [licenciatura, codigo, objetivo, perfil])
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -92,7 +92,7 @@ const EditarCarrera = (() => {
 
     const updateCarrera = (filePath) => {
 
-            Axios.post('https://itg-backend.herokuapp.com/editCarrera', {
+            Axios.post('/editCarrera', {
                 licenciatura: licenciatura,
                 codigo: codigo,
                 objetivo: objetivo,

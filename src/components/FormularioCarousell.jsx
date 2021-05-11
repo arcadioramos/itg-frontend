@@ -31,7 +31,7 @@ Axios.defaults.withCredentials = true;
     var filePathSave = ""
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -81,7 +81,7 @@ Axios.defaults.withCredentials = true;
             }
 
             if (filePathSave !== "") {
-                Axios.post('https://itg-backend.herokuapp.com/createCarousell', {
+                Axios.post('/createCarousell', {
                     file: filePathSave
                 }).then(() => {
                     setImagenAdd(1)

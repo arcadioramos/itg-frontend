@@ -36,7 +36,7 @@ Axios.defaults.withCredentials = true;
 
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -83,7 +83,7 @@ Axios.defaults.withCredentials = true;
         }
 
         if (titulo !== "" && descripcion !== "") {
-            Axios.post('https://itg-backend.herokuapp.com/createAviso', {
+            Axios.post('/createAviso', {
                 titulo: titulo,
                 descripcion: descripcion,
                 fecha: fecha,

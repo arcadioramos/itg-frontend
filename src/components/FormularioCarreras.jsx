@@ -67,7 +67,7 @@ const FormularioCarreras = (() => {
         }
 
         if (licenciatura !== "" && codigo !== "" && objetivo !== "" && perfil !== "") {
-            Axios.post('https://itg-backend.herokuapp.com/createOfertaAcademica', {
+            Axios.post('/createOfertaAcademica', {
                 licenciatura: licenciatura,
                 codigo: codigo,
                 objetivo: objetivo,
@@ -90,7 +90,7 @@ const FormularioCarreras = (() => {
     }
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
