@@ -35,7 +35,7 @@ const SeccionAlumnos = () => {
     var filePathSave = ""
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -89,7 +89,7 @@ const SeccionAlumnos = () => {
                 }
             }
 
-            Axios.post('https://itg-backend.herokuapp.com/publicarAlumno', {
+            Axios.post('/publicarAlumno', {
                 titulo: titulo,
                 value: value,
                 file: filePathSave

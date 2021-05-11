@@ -16,7 +16,7 @@ const SeccionIndividualInstitucion = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getInstitucionIndividual/' + id).then((response) => {
+        Axios.get('/getInstitucionIndividual/' + id).then((response) => {
             console.log(response.data[0])
            setValue(response.data[0].contenido);
             setFile(response.data[0].file);
@@ -25,7 +25,7 @@ const SeccionIndividualInstitucion = () => {
     }, [id])
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -38,7 +38,7 @@ const SeccionIndividualInstitucion = () => {
 
     const eliminarInstitucion = (async (e) => {
 
-        Axios.get('https://itg-backend.herokuapp.com/deleteInstitucion/' + id, {
+        Axios.get('/deleteInstitucion/' + id, {
         }).then((response) => {
             console.log(response);
         })

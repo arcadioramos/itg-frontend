@@ -17,13 +17,13 @@ const OfertaAcademica = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getOfertaAcademica/' + id).then((response) => {
+        Axios.get('/getOfertaAcademica/' + id).then((response) => {
             setDatosCarrera(response.data);
         })
     }, [id])
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)

@@ -16,7 +16,7 @@ const SeccionIndividualAlumnos = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getAlumnoIndividual/' + id).then((response) => {
+        Axios.get('/getAlumnoIndividual/' + id).then((response) => {
 
             setValue(response.data.result[0].contenido);
             setFile(response.data.result[0].file);
@@ -25,7 +25,7 @@ const SeccionIndividualAlumnos = () => {
     }, [id])
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -38,7 +38,7 @@ const SeccionIndividualAlumnos = () => {
 
     const eliminarAlumno = (async (e) => {
 
-        Axios.get('https://itg-backend.herokuapp.com/deleteAlumno/' + id, {
+        Axios.get('/deleteAlumno/' + id, {
         }).then((response) => {
             console.log(response);
         })

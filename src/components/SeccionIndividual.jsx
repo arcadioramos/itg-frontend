@@ -28,7 +28,7 @@ const SeccionIndividual = () => {
     }, [id])
 
     useEffect(() => {
-        Axios.get('https://itg-backend.herokuapp.com/getToken', {
+        Axios.get('/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -41,7 +41,7 @@ const SeccionIndividual = () => {
 
     const eliminarServicio = (async(e) => {
 
-        Axios.get('https://itg-backend.herokuapp.com/deleteServicio/' + id, {
+        Axios.get('/deleteServicio/' + id, {
         }).then((response) => {
             console.log(response); 
         })
