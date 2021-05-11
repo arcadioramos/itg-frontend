@@ -17,7 +17,7 @@ const SeccionIndividualCards= () => {
 
 
     useEffect(() => {
-        Axios.get('/getCardIndividual/' + id).then((response) => {
+        Axios.get('https://itg-backend.herokuapp.com/getCardIndividual/' + id).then((response) => {
             console.log(response.data[0])
            setValue(response.data[0].contenido);
             setFile(response.data[0].file);
@@ -26,7 +26,7 @@ const SeccionIndividualCards= () => {
     }, [id])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
