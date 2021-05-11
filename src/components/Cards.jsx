@@ -18,7 +18,7 @@ const Cards = () => {
             <div className="row">
             <div className="col-md-1"></div>
                 <div className="col-md-2">
-                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(1)}}>
+                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(4)}}>
                         <img className="card-img-top" src={NuevoIngreso} alt="Nuevo ingreso"  />
                         <div className="card-img-overlay card-img-overlay h-100 d-flex flex-column justify-content-end">
                             <p className="card-text" >Nuevo ingreso</p>
@@ -26,7 +26,7 @@ const Cards = () => {
                     </div>
                 </div>
                 <div className="col-md-2">
-                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(2)}} >
+                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(14)}} >
                         <img className="card-img-top" src={Reinscripcion} alt="Reinscripcion" />
                         <div className="card-img-overlay h-100 d-flex flex-column justify-content-end">
                             <p className="card-text">Reinscripción</p>
@@ -34,7 +34,7 @@ const Cards = () => {
                     </div>
                 </div>
                 <div className="col-md-2">
-                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(3)}}>
+                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(24)}}>
                         <img className="card-img-top" src={Titulacion} alt="Titulacion" />
                         <div className="card-img-overlay card-img-overlay h-100 d-flex flex-column justify-content-end">
                             <p className="card-text">Titulación</p>
@@ -42,7 +42,7 @@ const Cards = () => {
                     </div>
                 </div>
                 <div className="col-md-2">
-                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(4)}} >
+                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(34)}} >
                         <img className="card-img-top" src={Egresados} alt="Egresados" />
                         <div className="card-img-overlay card-img-overlay h-100 d-flex flex-column justify-content-end">
                             <p className="card-text">Egresados</p>
@@ -50,7 +50,7 @@ const Cards = () => {
                     </div>
                 </div>
                 <div className="col-md-2">
-                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(5)}}>
+                    <div className="card" onClick={(e)=>{e.preventDefault(); redireccion(44)}}>
                         <img className="card-img-top" src={Egresados} alt="Egresados" />
                         <div className="card-img-overlay card-img-overlay h-100 d-flex flex-column justify-content-end">
                             <p className="card-text">Egresados</p>
