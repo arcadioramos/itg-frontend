@@ -94,7 +94,10 @@ const RegistroLogin = () => {
 
     }
 
-
+    const recuperarContraseña = (e)=>{
+        e.preventDefault();
+        history.push('/reset')
+    }
     const login = () => {
         Axios.post('/login', {
             email: email,
@@ -155,6 +158,7 @@ const RegistroLogin = () => {
                                 <div className="form-group">
                                     <button onClick={login} class="btn btn-primary btn-block">Iniciar sesión</button>
                                 </div>
+                                <button onClick={}>¿Olvidaste tu contraseña?</button>
 
                                 {mensajeLog !== '' && <p className='alert alert-danger'>{mensajeLog}</p>}
                             
