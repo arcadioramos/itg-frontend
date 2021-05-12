@@ -170,7 +170,7 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -213,7 +213,7 @@ app.post('/uploads-carrera', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-carreras/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-carreras/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -256,7 +256,7 @@ app.post('/uploads-carousell', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-carousell/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-carousell/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -349,7 +349,7 @@ app.get('/getMoodle', (req, res) => {
 app.get('/deleteCarousell/:id', (req, res) => {
     const qFile = "SELECT file FROM carousell WHERE id = ?"
     db.query(qFile, req.params.id, (err, resultFile) => {
-        fs.unlinkSync(`${__dirname}/.././frontend/public${resultFile[0].file}`)
+        fs.unlinkSync(`${__dirname}/.././frontend/build${resultFile[0].file}`)
     })
     const query = 'DELETE FROM carousell WHERE id = ?';
     db.query(query, req.params.id, (err, result) => {
@@ -379,7 +379,7 @@ app.post('/uploads-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -418,7 +418,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -428,12 +428,12 @@ app.post('/uploads-edit/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -500,7 +500,7 @@ app.post('/uploads-carreras-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM ofertaacademica WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -539,7 +539,7 @@ app.post('/uploads-carreras-edit/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM ofertaacademica WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -549,12 +549,12 @@ app.post('/uploads-carreras-edit/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM ofertaacademica WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads-carreras/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads-carreras/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -954,7 +954,7 @@ app.post('/uploadsServicios-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM servicios WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -992,7 +992,7 @@ app.post('/uploads-editServicio/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM servicios WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -1002,12 +1002,12 @@ app.post('/uploads-editServicio/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM servicios WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads-servicios/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads-servicios/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -1070,7 +1070,7 @@ app.post('/uploadsServicios', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-servicios/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-servicios/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -1113,7 +1113,7 @@ app.post('/uploadsAlumnos', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-alumnos/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-alumnos/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -1178,7 +1178,7 @@ app.post('/uploadsAlumnos-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM alumnos WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -1234,7 +1234,7 @@ app.post('/uploads-editAlumno/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM alumnos WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -1244,12 +1244,12 @@ app.post('/uploads-editAlumno/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM alumnos WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads-alumnos/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads-alumnos/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -1368,7 +1368,7 @@ app.post('/uploadsInstitucion', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-institucion/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-institucion/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -1407,7 +1407,7 @@ app.post('/uploads-editInstitucion/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM institucion WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -1417,12 +1417,12 @@ app.post('/uploads-editInstitucion/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM institucion WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads-institucion/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads-institucion/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -1440,7 +1440,7 @@ app.post('/uploadsInstitucion-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM institucion WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -1511,7 +1511,7 @@ app.post('/uploadsCard', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/public/uploads-cards/${fileN}`, err => {
+            file.mv(`${__dirname}/.././frontend/build/uploads-cards/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -1550,7 +1550,7 @@ app.post('/uploads-editCard/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM cards WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -1560,12 +1560,12 @@ app.post('/uploads-editCard/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM cards WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/.././frontend/public${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/.././frontend/public/uploads-cards/${fileN}`, err => {
+                file.mv(`${__dirname}/.././frontend/build/uploads-cards/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -1584,7 +1584,7 @@ app.post('/uploadsCard-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM cards WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/public${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
