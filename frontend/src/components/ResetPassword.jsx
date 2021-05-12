@@ -17,6 +17,7 @@ const ResetPassword = () => {
             email: email,
         }).then((response) => {
             setMensaje(response.data.mensaje)
+            console.log(response);
             setTimeout(function () { setMensaje('') }, 5000); 
 
         })

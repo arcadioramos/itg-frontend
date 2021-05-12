@@ -775,7 +775,7 @@ app.post('/reset-password', async (req, res) => {
                                 from: 'arcadioramosisw@gmail.com',
                                 subject: 'Re asignación de contraseña',
                                 html: `
-                                <p>Haga click en el siguiente link para <a href="http://localhost:3000/reset/${resetToken}">reestablecer contraseña</a></p>
+                                <p>Haga click en el siguiente link para <a href="https://itg-done.herokuapp.com/reset/${resetToken}">reestablecer contraseña</a></p>
                                 `
 
                             })
