@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useHistory } from 'react-router-dom'
 import * as yup from 'yup';
+const history = useHistory();
 
 const schema = yup.object().shape({
     email: yup.string().email("El correo debe ser válido").required("El correo debe ser válido"),
