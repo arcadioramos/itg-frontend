@@ -21,7 +21,7 @@ const path = require('path');
 const crypto = require('crypto');
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: "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"
+        api_key: "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"
     }
 }))
 
@@ -600,7 +600,7 @@ app.post('/sendContacto', (req, res) => {
     const correo = req.body.correo;
     transporter.sendMail({
         to: 'carlinos1212@gmail.com',
-        from: 'arcadioramosisw@gmail.com',
+        from: 'carlinos1212@gmail.com',
         subject: asunto,
         html: `
         <p>${mensaje}</p>
@@ -633,7 +633,7 @@ app.post('/registrar', (req, res) => {
                 } else {
                     transporter.sendMail({
                         to: email,
-                        from: 'arcadioramosisw@gmail.com',
+                        from: 'carlinos1212@gmail.com',
                         subject: 'Registro completado con éxito',
                         html: '<h1>Usted se ha registrado</h1>'
                     })
@@ -772,7 +772,7 @@ app.post('/reset-password', async (req, res) => {
                         } else {
                             transporter.sendMail({
                                 to: email,
-                                from: 'arcadioramosisw@gmail.com',
+                                from: 'carlinos1212@gmail.com',
                                 subject: 'Re asignación de contraseña',
                                 html: `
                                 <p>Haga click en el siguiente link para <a href="https://itg-done.herokuapp.com/reset/${resetToken}">reestablecer contraseña</a></p>
