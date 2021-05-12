@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d570833f.chunk.css",
+    "main.js": "/static/js/main.633abd4d.chunk.js",
+    "main.js.map": "/static/js/main.633abd4d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0841678b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0841678b.js.map",
+    "static/css/2.552d82c2.chunk.css": "/static/css/2.552d82c2.chunk.css",
+    "static/js/2.fb411f39.chunk.js": "/static/js/2.fb411f39.chunk.js",
+    "static/js/2.fb411f39.chunk.js.map": "/static/js/2.fb411f39.chunk.js.map",
+    "static/js/3.ba67abcf.chunk.js": "/static/js/3.ba67abcf.chunk.js",
+    "static/js/3.ba67abcf.chunk.js.map": "/static/js/3.ba67abcf.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.552d82c2.chunk.css.map": "/static/css/2.552d82c2.chunk.css.map",
+    "static/css/main.d570833f.chunk.css.map": "/static/css/main.d570833f.chunk.css.map",
+    "static/js/2.fb411f39.chunk.js.LICENSE.txt": "/static/js/2.fb411f39.chunk.js.LICENSE.txt",
+    "static/media/egresados.55b630b9.jpg": "/static/media/egresados.55b630b9.jpg",
+    "static/media/logo_footer.bbac35e0.png": "/static/media/logo_footer.bbac35e0.png",
+    "static/media/logo_sonora.39f1dc19.png": "/static/media/logo_sonora.39f1dc19.png",
+    "static/media/logo_tecnm.93f36dfc.png": "/static/media/logo_tecnm.93f36dfc.png",
+    "static/media/nuevo_ingreso.54151859.jpg": "/static/media/nuevo_ingreso.54151859.jpg",
+    "static/media/reinscripcion.ec88daba.jpg": "/static/media/reinscripcion.ec88daba.jpg",
+    "static/media/titulacion.95b89872.jpg": "/static/media/titulacion.95b89872.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0841678b.js",
+    "static/css/2.552d82c2.chunk.css",
+    "static/js/2.fb411f39.chunk.js",
+    "static/css/main.d570833f.chunk.css",
+    "static/js/main.633abd4d.chunk.js"
+  ]
+}
