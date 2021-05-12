@@ -75,26 +75,20 @@ const RegistroLogin = () => {
     Axios.defaults.withCredentials = true;
 
     const registrar = () => {
-        Axios.get('/getToken', {
-        }).then((response) => {
-            if (response.data.authorized === true) {
-                Axios.post('/registrar',
-                    {
-                        email: emailReg,
-                        password: passwordReg,
-                        role: rolReg
-                    }).then((response) => {
-                        console.log(response);
-                        return true;
-                    })
-            } else {
-                console.log("no estoy autorizado" + response.data.authorized)
-                window.location = '/'
-            }
-        })
+        if (response.data.authorized === true) {
+            Axios.post('/registrar',
+                {
+                    email: emailReg,
+                    password: passwordReg,
+                    role: rolReg
+                }).then((response) => {
+                    console.log(response);
+                    return true;
+                })
 
 
     }
+}
 
     const recuperarContraseña = (e)=>{
         e.preventDefault();
@@ -171,8 +165,7 @@ const RegistroLogin = () => {
                 </div>
             }
 
-            {
-                mostrar &&
+            
                 <div className="container">
                     <div className="row">
                         <div className="lg-3" />
@@ -217,7 +210,7 @@ const RegistroLogin = () => {
                         <div className="lg-3" />
                     </div>
                 </div>
-            }
+            
 
 
 
