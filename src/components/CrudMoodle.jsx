@@ -13,13 +13,13 @@ const CrudMoodle = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getMoodle').then((response) => {
+        Axios.get('https://itg-backend.herokuapp.com/getMoodle').then((response) => {
             setMoodleList(response.data);
         })
     }, [])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)

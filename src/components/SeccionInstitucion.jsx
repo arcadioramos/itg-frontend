@@ -72,7 +72,7 @@ const SeccionInstitucion = () => {
                 }
             }
 
-            Axios.post('/publicarInstitucion', {
+            Axios.post('https://itg-backend.herokuapp.com/publicarInstitucion', {
                 titulo: titulo,
                 value: value,
                 file: filePathSave

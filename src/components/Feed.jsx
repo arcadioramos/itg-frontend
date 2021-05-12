@@ -17,13 +17,13 @@ const Feed = (() => {
     const [mostrar, setMostrar] = useState(false);
     Axios.defaults.withCredentials = true;
     useEffect(() => {
-        Axios.get('/getAvisos').then((response) => {
+        Axios.get('https://itg-backend.herokuapp.com/getAvisos').then((response) => {
             setAvisosList(response.data);
         })
     }, [])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)

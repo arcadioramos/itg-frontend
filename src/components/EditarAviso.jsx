@@ -64,7 +64,7 @@ const EditarAviso = (() => {
     }, [])
 
     const updateAviso = (filePath) => {
-        Axios.post('/editAviso', {
+        Axios.post('https://itg-backend.herokuapp.com/editAviso', {
             titulo: titulo,
             descripcion: descripcion,
             id: id,

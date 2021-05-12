@@ -16,7 +16,7 @@ const CarouselITG = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getCarousell').then((response) => {
+        Axios.get('https://itg-backend.herokuapp.com/getCarousell').then((response) => {
             setCarousellItems(response.data);
         })
     }, [counter])
@@ -28,7 +28,7 @@ const CarouselITG = () => {
     }, [counter])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)

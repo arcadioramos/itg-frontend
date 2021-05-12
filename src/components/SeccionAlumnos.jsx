@@ -35,7 +35,7 @@ const SeccionAlumnos = () => {
     var filePathSave = ""
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -67,7 +67,7 @@ const SeccionAlumnos = () => {
             formData.append('file', file);
             if (file !== "") {
                 try {
-                    const res = await Axios.post('/uploadsAlumnos', formData, {
+                    const res = await Axios.post('https://itg-backend.herokuapp.com/uploadsAlumnos', formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data',
                         }
@@ -89,7 +89,7 @@ const SeccionAlumnos = () => {
                 }
             }
 
-            Axios.post('/publicarAlumno', {
+            Axios.post('https://itg-backend.herokuapp.com/publicarAlumno', {
                 titulo: titulo,
                 value: value,
                 file: filePathSave

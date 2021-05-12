@@ -28,7 +28,7 @@ Axios.defaults.withCredentials = true;
 
     const onSubmit = async (e) => {
         if (asunto !== "" && mensaje !== "" && correo !== "") {
-            Axios.post('/sendContacto', {
+            Axios.post('https://itg-backend.herokuapp.com/sendContacto', {
                 asunto: asunto,
                 mensaje: mensaje,
                 correo: correo

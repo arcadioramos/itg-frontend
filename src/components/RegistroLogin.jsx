@@ -34,7 +34,7 @@ const RegistroLogin = () => {
     const [mensajeRegistradoT, setMensajeRegistradoT] = useState('');
 
     const submitForm = (data) => {
-        Axios.post('/checkEmailDuplicated', {
+        Axios.post('https://itg-backend.herokuapp.com/checkEmailDuplicated', {
             email: emailReg
 
         }).then((response) => {
@@ -51,7 +51,7 @@ const RegistroLogin = () => {
 
     }
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -73,7 +73,7 @@ const RegistroLogin = () => {
     Axios.defaults.withCredentials = true;
 
     const registrar = () => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 Axios.post('/registrar',
@@ -96,7 +96,7 @@ const RegistroLogin = () => {
 
 
     const login = () => {
-        Axios.post('/login', {
+        Axios.post('https://itg-backend.herokuapp.com/login', {
             email: email,
             password: password
         }).then((response) => {

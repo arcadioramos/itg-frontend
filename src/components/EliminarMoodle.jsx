@@ -22,14 +22,14 @@ const EliminarMoodle = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getMoodleData/' + id, {
+        Axios.get('https://itg-backend.herokuapp.com/getMoodleData/' + id, {
         }).then((response) => {
             setMoodleData(response.data[0])
         })
     }, [id])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -43,7 +43,7 @@ const EliminarMoodle = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        Axios.get('/deleteMoodle/' + id, {
+        Axios.get('https://itg-backend.herokuapp.com/deleteMoodle/' + id, {
         }).then(() => {
             setMoodleAdd(1)
         })

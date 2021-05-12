@@ -26,7 +26,7 @@ const NewPassword = () => {
 
     })
     const nuevaContraseña = () => {
-        Axios.post('/newPassword', {
+        Axios.post('https://itg-backend.herokuapp.com/newPassword', {
          password,token
         }).then((response) => {
             console.log(response);

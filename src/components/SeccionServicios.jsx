@@ -32,7 +32,7 @@ const SeccionServicios = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -65,7 +65,7 @@ const SeccionServicios = () => {
             formData.append('file', file);
             if (file !== "") {
                 try {
-                    const res = await Axios.post('/uploadsServicios', formData, {
+                    const res = await Axios.post('https://itg-backend.herokuapp.com/uploadsServicios', formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data',
                         }
@@ -87,7 +87,7 @@ const SeccionServicios = () => {
                 }
             }
 
-            Axios.post('/publicarServicio', {
+            Axios.post('https://itg-backend.herokuapp.com/publicarServicio', {
                 titulo: titulo,
                 value: value,
                 file: filePathSave

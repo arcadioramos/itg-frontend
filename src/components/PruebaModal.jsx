@@ -25,7 +25,7 @@ export default function AlertDialogSlide({ actualId, change }) {
     };
 
     const handleEliminar = () => {
-        Axios.get('/deleteCarousell/' + actualId, {
+        Axios.get('https://itg-backend.herokuapp.com/deleteCarousell/' + actualId, {
         }).then(() => {
             setEliminado(true)
             handleClose()

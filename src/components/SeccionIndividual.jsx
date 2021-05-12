@@ -28,7 +28,7 @@ const SeccionIndividual = () => {
     }, [id])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -41,7 +41,7 @@ const SeccionIndividual = () => {
 
     const eliminarServicio = (async(e) => {
 
-        Axios.get('/deleteServicio/' + id, {
+        Axios.get('https://itg-backend.herokuapp.com/deleteServicio/' + id, {
         }).then((response) => {
             console.log(response); 
         })
@@ -55,7 +55,7 @@ const SeccionIndividual = () => {
         }
 
         if (file !== "") {
-            Axios.post(`/uploadsServicios-editDel/${id}`).then(() => {
+            Axios.post(`https://itg-backend.herokuapp.com/uploadsServicios-editDel/${id}`).then(() => {
                 eliminarServicio()
             })
         }

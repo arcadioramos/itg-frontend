@@ -22,13 +22,13 @@ const EliminarAviso = () => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getDatosAviso/' + id).then((response) => {
+        Axios.get('https://itg-backend.herokuapp.com/getDatosAviso/' + id).then((response) => {
             setDatos(response.data[0]);
         })
     }, [id])
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)

@@ -36,7 +36,7 @@ const EditarCard = (() => {
 
     const updateCard = (filePath) => {
         
-        Axios.post('/editarCard', {
+        Axios.post('https://itg-backend.herokuapp.com/editarCard', {
             id: id,
             value: value,
             file: filePath
@@ -105,7 +105,7 @@ const EditarCard = (() => {
 
 
         useEffect(() => {
-            Axios.get('/getCardIndividual/' + id).then((response) => {
+            Axios.get('https://itg-backend.herokuapp.com/getCardIndividual/' + id).then((response) => {
                 
                 setValue(response.data[0].contenido);
                 console.log(response.data[0])

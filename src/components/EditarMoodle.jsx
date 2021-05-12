@@ -28,7 +28,7 @@ const EditarMoodle = (() => {
     Axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        Axios.get('/getMoodleData/' + id, {
+        Axios.get('https://itg-backend.herokuapp.com/getMoodleData/' + id, {
         }).then((response) => {
             setMoodleData(response.data[0])
         })
@@ -56,7 +56,7 @@ const EditarMoodle = (() => {
     }
 
     useEffect(() => {
-        Axios.get('/getToken', {
+        Axios.get('https://itg-backend.herokuapp.com/getToken', {
         }).then((response) => {
             if (response.data.authorized === true) {
                 console.log("estoy autorizado " + response.data.authorized)
@@ -70,7 +70,7 @@ const EditarMoodle = (() => {
 
     const onSubmit = async (e) => {
         if (titulo !== "" && servidor !== "") {
-            Axios.post('/editMoodle/' + id, {
+            Axios.post('https://itg-backend.herokuapp.com/editMoodle/' + id, {
                 titulo: titulo,
                 servidor: servidor
             }).then(() => {

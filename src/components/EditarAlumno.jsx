@@ -45,7 +45,7 @@ const EditarAlumno = (() => {
 
     const updateAlumno = (filePath) => {
         
-        Axios.post('/editarAlumno', {
+        Axios.post('https://itg-backend.herokuapp.com/editarAlumno', {
             id: id,
             titulo: titulo,
             value: value,
@@ -71,7 +71,7 @@ const EditarAlumno = (() => {
             formData.append('file', file);
 
             if (file === "") {
-                Axios.post(`/uploadsAlumnos-editDel/${id}`).then((response) => {
+                Axios.post(`https://itg-backend.herokuapp.com/uploadsAlumnos-editDel/${id}`).then((response) => {
                     const { filePath } = response.data;
                     console.log(response.data)
                     updateAlumno(filePath)
@@ -111,7 +111,7 @@ const EditarAlumno = (() => {
 
 
         useEffect(() => {
-            Axios.get('/getAlumnoIndividual/' + id).then((response) => {
+            Axios.get('https://itg-backend.herokuapp.com/getAlumnoIndividual/' + id).then((response) => {
                 
                 console.log(response)
                 setTitulo(response.data.result[0].titulo);
@@ -124,7 +124,7 @@ const EditarAlumno = (() => {
         }, [id])
 
         useEffect(() => {
-            Axios.get('/getToken', {
+            Axios.get('https://itg-backend.herokuapp.com/getToken', {
             }).then((response) => {
                 if (response.data.authorized === true) {
                     console.log("estoy autorizado " + response.data.authorized)
