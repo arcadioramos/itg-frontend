@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Footer from './Footer'
 import Header from './Header'
 import NavbarITG from './NavbarITG'
 import Axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useHistory } from 'react-router-dom'
+
 import * as yup from 'yup';
-const history = useHistory();
+
 
 const schema = yup.object().shape({
     email: yup.string().email("El correo debe ser válido").required("El correo debe ser válido"),
@@ -16,7 +17,7 @@ const schema = yup.object().shape({
 
 });
 const RegistroLogin = () => {
-
+    const history = useHistory();
     const [emailReg, setEmailReg] = useState('');
     const [passwordReg, setPasswordReg] = useState('');
     const [email, setEmail] = useState('');
