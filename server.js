@@ -39,7 +39,7 @@ app.use(express.json());
 //app.use("/users/", usersRoute);
 var PORT = 5000;
 app.listen(process.env.PORT || PORT, () => {
-    console.log("Express server está corriendo en port"+PORT);
+    console.log("Express server está corriendo en port" + PORT);
 })
 
 //Middleware
@@ -170,8 +170,8 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/../frontend/build/uploads/${fileN}`, err => {
-                
+            file.mv(`${__dirname}/../frontend/public/uploads/${fileN}`, err => {
+
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -430,7 +430,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
                             fs.unlinkSync(`${__dirname}/frontend/build${result2[0].file}`)
-                            
+
                         }
                     })
                 }
@@ -1605,11 +1605,11 @@ app.post('/uploadsCard-editDel/:id', (req, res) => {
 
 
 app.post('/', function (req, res, next) {
-    res.json({mensaje: "todo un éxito"})
+    res.json({ mensaje: "todo un éxito" })
 });
 
-app.get('*', (req,res,next)=>{
-    res.sendFile(path.join(__dirname+'/frontend/build/index.html')); 
+app.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
 })
 
 
