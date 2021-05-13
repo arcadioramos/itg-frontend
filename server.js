@@ -170,7 +170,8 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/frontend/public/uploads/${fileN}`, err => {
+            file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
+                
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -429,6 +430,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
                             fs.unlinkSync(`${__dirname}/frontend/build${result2[0].file}`)
+                            
                         }
                     })
                 }
