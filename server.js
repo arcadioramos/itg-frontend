@@ -257,7 +257,7 @@ app.post('/uploads-carousell', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/.././frontend/build/uploads-carousell/${fileN}`, err => {
+            file.mv(`${__dirname}/frontend/build${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
