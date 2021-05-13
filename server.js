@@ -380,7 +380,7 @@ app.post('/uploads-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/frontend/build${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/frontend/public${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -419,7 +419,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/frontend/build${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/frontend/public${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
@@ -429,13 +429,13 @@ app.post('/uploads-edit/:id', (req, res) => {
                     const query3 = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
                     db.query(query3, result2[0].file, (err, result3) => {
                         if (result3[0].count == 1 && result2[0].file != "") {
-                            fs.unlinkSync(`${__dirname}/frontend/build${result2[0].file}`)
+                            fs.unlinkSync(`${__dirname}/frontend/public${result2[0].file}`)
 
                         }
                     })
                 }
 
-                file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
+                file.mv(`${__dirname}/frontend/public/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
