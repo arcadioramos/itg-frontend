@@ -170,7 +170,7 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`/frontend/build/uploads/${fileN}`, err => {
+            file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -379,7 +379,7 @@ app.post('/uploads-editDel/:id', (req, res) => {
             const query2 = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
             db.query(query2, result[0].file, (err, result2) => {
                 if (result2[0].count < 2) {
-                    fs.unlinkSync(`${__dirname}/.././frontend/build${result[0].file}`)
+                    fs.unlinkSync(`${__dirname}/frontend/build${result[0].file}`)
                     res.json({ filePath: "" })
                 } else {
                     res.json({ filePath: "" })
@@ -433,7 +433,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                     })
                 }
 
-                file.mv(`/frontend/build/uploads/${fileN}`, err => {
+                file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
                     if (err) {
                         console.error(err);
                         return res.status(500).send(err);
@@ -1603,7 +1603,7 @@ app.post('/uploadsCard-editDel/:id', (req, res) => {
 
 
 app.post('/', function (req, res, next) {
-    res.json({mensaje: "todo un éxito cabros"})
+    res.json({mensaje: "todo un éxito"})
 });
 
 app.get('*', (req,res,next)=>{
