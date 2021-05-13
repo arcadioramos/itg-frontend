@@ -151,7 +151,7 @@ app.post('/uploads', (req, res) => {
         };
     }
     const fileN = file.name.replaceAll(" ", "-")
-    const filePath = "/uploads/" + fileN
+    const filePath = "/uploads-carousell/" + fileN
     var exist = false;
 
     db.query('SELECT file FROM avisos', (err, result) => {
@@ -403,7 +403,7 @@ app.post('/uploads-edit/:id', (req, res) => {
         };
     }
     const fileN = file.name.replaceAll(" ", "-")
-    const filePath = "/uploads/" + fileN
+    const filePath = "/uploads-carousell/" + fileN
     var exist = false;
 
     const query = 'SELECT file FROM avisos'
