@@ -170,7 +170,7 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
+            file.mv(`${__dirname}../frontend/build/uploads/${fileN}`, err => {
                 
                 if (err) {
                     console.error(err);
