@@ -1607,7 +1607,8 @@ app.post('/', function (req, res, next) {
 });
 
 app.get('*', (req,res,next)=>{
-    res.sendFile(path.join(__dirname+'frontend/build/index.html')); 
+    res.sendFile(path.join(__dirname+'/frontend/build/index.html')); 
 })
+
 
 //app.use(myConn(mysql, conn, 'single'));
