@@ -170,7 +170,7 @@ app.post('/uploads', (req, res) => {
             }
 
 
-            file.mv(`${__dirname}/frontend/build/uploads/${fileN}`, err => {
+            file.mv(`/frontend/public/uploads/${fileN}`, err => {
                 if (err) {
                     console.error(err);
                     return res.status(500).send(err);
@@ -418,7 +418,7 @@ app.post('/uploads-edit/:id', (req, res) => {
                 const queryCount = 'SELECT count(*) AS count FROM avisos WHERE file = ?'
                 db.query(queryCount, result2[0].file, (err, resultCount) => {
                     if (resultCount[0].count == 1 && result2[0].file != "" && result2[0].file != filePath) {
-                        fs.unlinkSync(`${__dirname}/.././frontend/build${result2[0].file}`)
+                        fs.unlinkSync(`${__dirname}/frontend/build${result2[0].file}`)
                     }
                 })
                 res.json({ fileName: file.name, filePath: filePath })
