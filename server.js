@@ -1,10 +1,6 @@
 const express = require("express");
-const app = express();
-//const usersRoute = require("../routes/usersRoute");
 const moment = require('moment')
-const myConn = require('express-myconnection');
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const bcrypt = require('bcrypt');
@@ -25,21 +21,18 @@ const transporter = nodemailer.createTransport(sendgridTransport({
     }
 }))
 
+const app = express();
+app.use(cors());
 app.use(fileUpload());
-
 app.use(cookieParser());
 
-
-  
-  app.use(cors());
-  
-  app.use(function (req, res, next) {	
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');    
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');    
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');   
-      res.setHeader('Access-Control-Allow-Credentials', true);    
-      next();
-  });
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 //9. Serve Static files from react
 app.use(express.static(path.join(__dirname, 'frontend/build')));

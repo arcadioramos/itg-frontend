@@ -12,8 +12,7 @@ import Axios from 'axios'
 import Footer from './Footer'
 import Header from './Header'
 import NavbarITG from './NavbarITG'
-import Confirmacion from './Confirmacion'
-import RellenarCampos from './RellenarCampos'
+
 
 const FormularioCarousell = (() => {
 
@@ -70,9 +69,9 @@ const FormularioCarousell = (() => {
                         <Form id="formCarousell">
 
                             <div className="custom-file mb-3">
-                                <input type="file" className="custom-file-input" id="customFile" onChange={(e) => { setImageSelected(e.target.files[0]) }} />
+                                <input type="file" className="custom-file-input" id="customFile" onChange={(e) => { setImageSelected(e.target.files[0], console.log(imageSelected))}} />
                                 <label className="custom-file-label" htmlFor="customFile">
-
+                                    {imageSelected.name}
                                 </label>
                             </div>
                             <div className="buttons">
