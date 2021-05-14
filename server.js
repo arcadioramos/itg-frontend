@@ -29,8 +29,21 @@ app.use(fileUpload());
 
 app.use(cookieParser());
 
+var corsOptions = {
+    origin: 'http://localhost:5000',
+    credentials : true
+   }
+  
+  app.use(cors(corsOptions));
+  
+  app.use(function (req, res, next) {	
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');    
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');    
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');   
+      res.setHeader('Access-Control-Allow-Credentials', true);    
+      next();
+  });
 
-app.use(cors());
 //9. Serve Static files from react
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 //Para poder comunicarle los json del frontend al server
@@ -1612,19 +1625,6 @@ app.get('*', (req, res, next) => {
     res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
 })
 
-var corsOptions = {
-    origin: 'http://localhost:5000',
-    credentials : true
-   }
-  
-  app.use(cors(corsOptions));
-  
-  app.use(function (req, res, next) {	
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');    
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');    
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');   
-      res.setHeader('Access-Control-Allow-Credentials', true);    
-      next();
-  });
+
 
 //app.use(myConn(mysql, conn, 'single'));
