@@ -29,12 +29,9 @@ app.use(fileUpload());
 
 app.use(cookieParser());
 
-var corsOptions = {
-    origin: 'http://localhost:5000',
-    credentials : true
-   }
+
   
-  app.use(cors(corsOptions));
+  app.use(cors());
   
   app.use(function (req, res, next) {	
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');    
