@@ -47,7 +47,7 @@ const FormularioCarousell = (() => {
             if (!(/\.(jpg|png|gif)$/i).test(imageSelected.name)) {
                 setMessage("Solo se permite subir archivos de tipo imagen('jpg o png')");
             } else {
-                Axios.post('https://api.cloudinary.com/v1_1/arcadio-ramos/image/upload',{withCredentials:true,crossOrigin: true},
+                Axios.post('https://api.cloudinary.com/v1_1/arcadio-ramos/image/upload',
                 formdata).then((response)=>{
                     console.log(response);
                 })
