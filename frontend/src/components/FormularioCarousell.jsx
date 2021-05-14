@@ -18,17 +18,14 @@ import RellenarCampos from './RellenarCampos'
 const FormularioCarousell = (() => {
 
 
-    const [imagenAdd, setImagenAdd] = useState(0);
 
-    const [file, setFile] = useState('');
-    const [fileName, setFileName] = useState('Elige una imagen');
-    const [uploadedFile, setUploadedFile] = useState({})
-    const [message, setMessage] = useState('');
-    
-const [mostrar, setMostrar] = useState(false);
-Axios.defaults.withCredentials = true;
 
-    var filePathSave = ""
+    const [imageSelected, setImageSelected] = useState('Seleccione una imagen');
+    const [message, setMessage] = useState("");
+    const [mostrar, setMostrar] = useState(false);
+    Axios.defaults.withCredentials = true;
+
+
 
     useEffect(() => {
         Axios.get('/getToken', {
@@ -43,60 +40,24 @@ Axios.defaults.withCredentials = true;
         })
     }, [])
 
-    const onChange = (e) => {
-        setFile(e.target.files[0]);
-        setFileName(e.target.files[0].name);
-    }
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('file', file);
-        if (file !== "") {
-            if (!(/\.(jpg|png|gif)$/i).test(file.name)) {
-                setImagenAdd(3);
-                setTimeout(function () { setImagenAdd(0) }, 2000)
+    const uploadImage = () => {
+        const formdata = new FormData();
+        formdata.append("file", imageSelected);
+        formdata.append("upload_preset", "wyz1clpz");
+        if (imageSelected !== "") {
+            if (!(/\.(jpg|png|gif)$/i).test(imageSelected.name)) {
+                setMessage("Solo se permite subir archivos de tipo imagen('jpg o png')");
             } else {
-                try {
-                    const res = await Axios.post('/uploads-carousell', formData, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                        }
-
-                    });
-
-                    const { fileName, filePath } = res.data;
-                    filePathSave = filePath
-
-                    setUploadedFile({ fileName, filePath });
-                    setMessage('Archivo subido')
-
-                } catch (err) {
-                    if (err.response.status === 500) {
-                        setMessage("Hubo un problema con el servidor");
-                    } else {
-                        setMessage(err.response.data.msg);
-                    }
-                }
-            }
-
-            if (filePathSave !== "") {
-                Axios.post('/createCarousell', {
-                    file: filePathSave
-                }).then(() => {
-                    setImagenAdd(1)
-                    document.getElementById("formCarousell").reset();
-                    setTimeout(function () { setImagenAdd(0) }, 2000)
-                    setFileName("Elige una imagen")
-                    setFile("")
+                Axios.post('https://api.cloudinary.com/v1_1/arcadio-ramos/image/upload',
+                formdata).then((response)=>{
+                    console.log(response);
                 })
             }
 
-        } else {
-            setImagenAdd(2)
-            setTimeout(function () { setImagenAdd(0) }, 2000)
+
         }
     }
+
 
     return (
         <>{mostrar && <>
@@ -107,23 +68,15 @@ Axios.defaults.withCredentials = true;
                     <Col lg={4} />
                     <Col lg={4}>
                         <Form id="formCarousell">
-                            {
-                                imagenAdd === 1 && <Confirmacion mensaje="Imagen añadida correctamente" />
-                            }
-                            {
-                                imagenAdd === 2 && <RellenarCampos mensaje="Favor de añadir la imagen" />
-                            }
-                            {
-                                imagenAdd === 3 && <RellenarCampos mensaje="Solo se permiten imagenes" />
-                            }
+
                             <div className="custom-file mb-3">
-                                <input type="file" className="custom-file-input" id="customFile" onChange={onChange} />
+                                <input type="file" className="custom-file-input" id="customFile" onChange={(e) => { setImageSelected(e.target.files[0]) }} />
                                 <label className="custom-file-label" htmlFor="customFile">
-                                    {fileName}
+
                                 </label>
                             </div>
                             <div className="buttons">
-                                <Button variant="primary" onClick={onSubmit} >
+                                <Button variant="primary" onClick={uploadImage} >
                                     Añadir imagen
                             </Button>
                                 <Button>
