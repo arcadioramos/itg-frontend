@@ -1608,7 +1608,7 @@ app.post('/uploadsCard-editDel/:id', (req, res) => {
 
 
 app.post('/', function (req, res, next) {
-    res.json({ mensaje: "todo un éxito" })
+    res.json({ mensaje: "todo un éxitos" })
 });
 
 app.get('*', (req, res, next) => {
